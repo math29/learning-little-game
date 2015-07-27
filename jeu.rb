@@ -1,30 +1,36 @@
 class Personne
-  attr_accessor :nom, :points_de_vie, :en_vie
+    attr_accessor :nom, :points_de_vie, :en_vie
 
-  def initialize(nom)
-    @nom = nom
-    @points_de_vie = 100
-    @en_vie = true
-  end
+    def initialize(nom)
+        @nom = nom
+        @points_de_vie = 100
+        @en_vie = true
+    end
 
-  def info
-    # A faire:
-    # - Renvoie le nom et les points de vie si la personne est en vie
-    # - Renvoie le nom et "vaincu" si la personne a été vaincue
-  end
+    def info(perso)
+        # A faire:
+        # - Renvoie le nom et les points de vie si la personne est en vie
+        # - Renvoie le nom et "vaincu" si la personne a été vaincue
+        if perso.health > 0
+            return perso.nom + " " + @perso.health + " points de vies !"
+        else
+            return @perso.nom + " vaincu"
+        end
+    end
 
-  def attaque(personne)
-    # A faire:
-    # - Fait subir des dégats à la personne passée en paramètre
-    # - Affiche ce qu'il s'est passé
-  end
+    def attaque(personne)
+        # A faire:
+        # - Fait subir des dégats à la personne passée en paramètre
+        # - Affiche ce qu'il s'est passé
 
-  def subit_attaque(degats_recus)
-    # A faire:
-    # - Réduit les points de vie en fonction des dégats reçus
-    # - Affiche ce qu'il s'est passé
-    # - Détermine si la personne est toujours en_vie ou non
-  end
+    end
+
+    def subit_attaque(degats_recus)
+        # A faire:
+        # - Réduit les points de vie en fonction des dégats reçus
+        # - Affiche ce qu'il s'est passé
+        # - Détermine si la personne est toujours en_vie ou non
+    end
 end
 
 class Joueur < Personne
