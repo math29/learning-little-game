@@ -22,7 +22,7 @@ class Personne
         # A faire:
         # - Fait subir des dégats à la personne passée en paramètre
         # - Affiche ce qu'il s'est passé
-        degats = personne.degats
+        degats = degats()
         puts @nom + " attaque " + personne.nom + " ! \n"
         personne.subit_attaque(degats)
     end
@@ -53,14 +53,14 @@ class Joueur < Personne
     # A faire:
     # - Calculer les dégats
     # - Affiche ce qu'il s'est passé
-    return Random.rand(10)
+    return Random.rand(30) + @degats_bonus
   end
 
   def soin
     # A faire:
     # - Gagner de la vie
     # - Affiche ce qu'il s'est passé
-    heal = Random.rand(1000)
+    heal = Random.rand(100)
     @points_de_vie += heal
     puts "Notre héro récupère " + heal.to_s + " points de vies supplémentaires ! (" + @points_de_vie.to_s + ")"
   end
@@ -79,7 +79,7 @@ class Ennemi < Personne
   def degats
     # A faire:
     # - Calculer les dégats
-    return Random.rand(100)
+    return Random.rand(5)
   end
 end
 
@@ -106,7 +106,7 @@ class Jeu
     if joueur.points_de_vie < 0
         joueur.en_vie = false
         return true
-    elsif monde.ennemis_en_vie == nil
+    elsif monde.ennemis_en_vie == []
         return true
     else
         return false
